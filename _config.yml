@@ -7,9 +7,9 @@
 
 # Site settings
 title: Diego Gibello Foglio
-email: your-email@domain.com
+email: diego.gibellofoglio@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Sono un figo.
+  Personal blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://diegogifo.github.io" # the base hostname & protocol for your site
 twitter_username: jekyllrb
