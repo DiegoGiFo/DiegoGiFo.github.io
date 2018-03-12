@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rosserial Tutorial"
+title:  "Rosserial Tutorial (En)"
 date:   2018-03-12 14:00
 categories: jekyll update
 ---
@@ -9,13 +9,13 @@ categories: jekyll update
 
 Hi,in this tutorial I want to introduce how to create a first project using Arduino and
 rosserial.
-The goal of this tutorial is to create a project that controlls the turtlesim simulator of ROS.
-The controll is done by 4 buttons that allow the turtle to move rigth, left, forward and backward.
+The goal of this tutorial is to create a project that controls the turtlesim simulator of ROS.
+The control is done by 4 buttons that allow the turtle to move rigth, left, forward and backward.
 
 ## TOPICS
 
- - Use of a publisher that publishes on the topic /turtle1/cmd_vel the movements value based on the button pressed;
- - Use of a subsriber that subscribes to the topic /turtle1/pose from which receives the position of the turtle and print it on the LCD screen.
+ - The use of a publisher that publishes on the topic /turtle1/cmd_vel the movements value based on the button pressed;
+ - The use of a subsriber that subscribes to the topic /turtle1/pose from which receives the position of the turtle and print it on the LCD screen.
 
 ![Ros_graph](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/rosgraph.png?raw=true "Figure 1-1")
 
@@ -186,7 +186,7 @@ int FWD = 0;
 int BEH = 0;
 ~~~
 Declare the variables movements as type geometry_msgs/Twist
-Declare the buttons's pins and 4 variables of type int that are the outputs of the 4 buttons.
+Declare the buttons's pins and 4 variables of type int that are the inputs of the 4 buttons.
 
 ## CALLBACK FUNCTION
 
@@ -202,7 +202,7 @@ void turt_cb( const turtlesim::Pose &turt_msg){
 }
 ~~~
 This function is needed in the subscriber initialization and prints on the LCD screen the position of the turtle.
-lcd.setCursor(0,0) sets the position of the cursor in the screen. Since the 16x2 screen has 16 columns and 2 rows the X position is printed in the fisr row and the Y position on the second row.
+lcd.setCursor(0,0) sets the position of the cursor in the screen. Since the 16x2 screen has 16 columns and 2 rows the X position is printed in the first row and the Y position on the second row.
 The variables turt_msg.x and turt_msg.y contains the X and Y position of the turtle in the simulator.
 
 ~~~cpp
@@ -279,6 +279,6 @@ void loop() {
 }
 ~~~
 
-In the void loop is assigned to the 4 variables RGT, LFT, BEH, FWD, the 4 values of the buttons's inputs and then checked which variables is equal to high which means that the corresponding button is pressed.
+In the void loop are assigned to the 4 variables RGT, LFT, BEH, FWD the 4 values of the buttons's inputs and then checked which variables is equal to high which means that the corresponding button is pressed.
 
 On the basis of the pressed button is publish on the topic /turtle1/cmd_vel a different linear and angular velocity.
