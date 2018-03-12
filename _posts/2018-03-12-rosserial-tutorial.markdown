@@ -5,7 +5,7 @@ date:   2018-03-12
 categories: ros rosserial turtlesim arduino lcd
 ---
 
-# ROSSERIAL TUTORIAl
+# ROSSERIAL TUTORIAL
 
 ## INTRO
 
