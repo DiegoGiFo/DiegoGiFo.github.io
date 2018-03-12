@@ -1,8 +1,8 @@
 variables---
 layout: post
 title:  "Rosserial Arduino Tutorial"
-date:   2018-12-08
-categories: ros rosserial turtlesim arduino lcd 
+date:   2018-03-12
+categories: ros rosserial turtlesim arduino lcd
 ---
 
 # Rosserial Arduino Tutorial
