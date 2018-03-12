@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Rosserial Arduino Tutorial"
-date:   2018-03-12
-categories: ros rosserial turtlesim arduino lcd
+title:  "Rosserial Tutorial"
+date:   2018-03-08 12:55:40 +0100
+categories: jekyll update
 ---
 
 ## INTRO
