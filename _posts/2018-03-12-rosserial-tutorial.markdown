@@ -5,17 +5,56 @@ date:   2018-03-12
 categories: ros rosserial turtlesim arduino lcd
 ---
 
-# Rosserial Arduino Tutorial
+# ROSSERIAL TUTORIAl with Arduino
 
-### INTRO
+## INTRO
 
 Hi,in this tutorial I want to introduce how to create a first project using Arduino and
 rosserial.
-
 The goal of this tutorial is to create a project that controlls the turtlesim simulator of ROS.
 The controll is done by 4 buttons that allow the turtle to move rigth, left, forward and backward.
 
-The whole code is this one :
+## TOPICS
+
+ - Use of a publisher that publishes on the topic /turtle1/cmd_vel the movements value based on the button pressed;
+ - Use of a subsriber that subscribes to the topic /turtle1/pose from which receives the position of the turtle and print it on the LCD screen.
+
+ ![alt text](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/rosgraph.png)
+
+## MATERIAL
+
+For the relization of this projects is needed:
+
+- Arduino uno;
+- LCD screen 16 x 2;
+- 4 buttons;
+- breadboard.
+
+## CIRCUIT
+
+#### LCD
+- RS pin to digital PIN 12
+- Enable pin to digital PIN 11
+- D4 pin to digital PIN 5
+- D5 pin to digital PIN 4
+- D6 pin to digital PIN 3
+- D7 pin to digital PIN 2
+- R/W pin to GROUND
+- 10K resistor connecting LED+ to GROUND:
+- LED- to GROUND
+- VO to GROUND
+
+#### BUTTONS
+- Rigth button PIN 6
+- Left button PIN 7
+- Forward button PIN 8
+- Behind button PIN 9
+
+Can download the fritzing scheme here: [Scheme](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/Turtle_Cnt.fzz)
+
+## CODE
+
+The whole code is the following one :
 
 ~~~cpp
 #include <LiquidCrystal.h>
