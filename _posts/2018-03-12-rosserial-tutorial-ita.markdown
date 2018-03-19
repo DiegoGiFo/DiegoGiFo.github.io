@@ -2,7 +2,7 @@
 layout: post
 title:  "Rosserial Tutorial (Ita)"
 date:   2018-03-12 14:00
-categories: jekyll update
+categories: rosserial arduino lcd ros publisher subscriber
 ---
 
 ## INTRO
@@ -11,14 +11,14 @@ In questo tutorial voglio spiegarvi come creare un semplice progetto basato su r
 L'obiettivo di questo tutorial è quello di creare un progetto in grado di controllare il simulatore turtlesim di ROS.
 La tartaruga viene controllata da 4 pulsanti che la fanno muovere a destra,sinistra,avanti ed indietro.
 
-## TOPICS
+## CONTENUTI
 
  - L'uso di un publisher che pubblica sul topic /turtle1/cmd_vel i movimenti da far compiere alla tartaruga basandosi sul pulsante che si è premuto;
  - L'uso di un subscriber che si sottoscrive al topic /turtle1/pose dal quale riceve la posizione della tartaruga e la mostra sullo schermo LCD.
 
 ![Ros_graph](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/rosgraph.png?raw=true "Figure 1-1")
 
-## MATERIAL
+## MATERIALE
 
 Per la realizzazione di questo progetto serve:
 
@@ -27,9 +27,9 @@ Per la realizzazione di questo progetto serve:
 - 4 bottoni;
 - breadboard.
 
-## CIRCUIT
+## CIRCUITO
 
-#### LCD
+#### SCHERMO LCD
 - RS pin -> PIN 12
 - Enable pin -> PIN 11
 - D4 pin -> PIN 5
@@ -41,7 +41,7 @@ Per la realizzazione di questo progetto serve:
 - LED- -> GROUND
 - VO -> GROUND
 
-#### BUTTONS
+#### BOTTONI
 - Bottone DESTRO -> PIN 6
 - bottone SINISTRO -> PIN 7
 - bottone AVANTI -> PIN 8
@@ -49,7 +49,7 @@ Per la realizzazione di questo progetto serve:
 
 E' possibile scaricare lo schema del circuito a questo link: [Scheme](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/Turtle_Cnt.fzz)
 
-## CODE
+## CODICE
 
 Di seguito è mostrato il codice completo :
 

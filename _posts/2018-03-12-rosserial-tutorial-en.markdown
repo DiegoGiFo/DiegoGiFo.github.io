@@ -2,7 +2,7 @@
 layout: post
 title:  "Rosserial Tutorial (En)"
 date:   2018-03-12 14:00
-categories: jekyll update
+categories: rosserial arduino lcd ros publisher subscriber
 ---
 
 ## INTRO
