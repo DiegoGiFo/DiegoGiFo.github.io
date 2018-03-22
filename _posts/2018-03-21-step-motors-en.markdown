@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Step motors tutorial (En)"
+title:  "Step motors tutorial (Implemented version - En)"
 date:   2018-03-21 16:12
 categories: ros rosserial stepper motors cnc
 ---
