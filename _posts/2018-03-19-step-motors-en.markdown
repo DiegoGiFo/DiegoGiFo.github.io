@@ -7,8 +7,8 @@ categories: ros rosserial stepper motors cnc
 
 ## INTRO
 
-Hi,in this tutorial I want to introduce how to use the stepper motors.
-The goal of this tutorial is to create a project that controls two steppers receiving the inputs by the turtlebot simulator of ROS.
+Hi,in this tutorial I want to introduce how to use the stepper motor.
+The goal of this tutorial is to create a project that controls two steppers receiving the inputs from the turtlebot simulator of ROS.
 
 ## TOPICS
 
@@ -19,14 +19,14 @@ The goal of this tutorial is to create a project that controls two steppers rece
  For the realization of the project I've done this passages:
 
 - Found this library :[CNC library](https://github.com/DIMRobotics/ArduinoStepperDriver/wiki/Reference)
-and i understood how to use it.
+and I understood how to use it.
 
 - Did some sketches to test the code.
 Can find them here: [Step Motors test](https://github.com/DiegoGiFo/Step_Motor)
 
 - Understood the cinematics equations for the motion of the motors. The equation that I used is: ![eq](https://github.com/DiegoGiFo/Motor_Cnt/blob/master/render.png?raw=true "Figure 1")
 
-- Write the final code that allows to control the two step motors receiving as inputs the linear velocity and he angular one of the topic cmd_vel.
+- Write the final code that allows to control the two step motors receiving as inputs the linear velocity and the angular one of the topic cmd_vel.
 
 
 ## MATERIAL
@@ -50,11 +50,9 @@ The whole code is the following one :
 #include <ros.h>
 #include <StepperDriver.h>
 #include <geometry_msgs/Twist.h>
-//#include <nav_msgs/Odometry.h>
 
 ros::NodeHandle  nh; // allows to create publisher/subscriber
 geometry_msgs::Twist vel;
-//nav_msgs::Odometry mov;
 
 #define EN 8
 #define L 0.100 // distance between the two wheels of the robot
@@ -118,7 +116,6 @@ void motors_cb(const geometry_msgs::Twist &m_r){
 
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &motors_cb);
 ros::Publisher pub("/info_vel", &vel);
-//ros::Publisher pub("/odom", &mov);
 
 void setup ()
 {
@@ -151,7 +148,6 @@ void loop(){
 #include <ros.h>
 #include <StepperDriver.h>
 #include <geometry_msgs/Twist.h>
-//#include <nav_msgs/Odometry.h>
 ~~~
 
 In this part is included ros_libs that allows to use all the others library: geometry_msgs and nav_msgs.
@@ -163,7 +159,6 @@ You can find the StepperDriver lirary here: [library folder](https://github.com/
 ~~~cpp
 ros::NodeHandle  nh; // allows to create publisher/subscriber
 geometry_msgs::Twist vel;
-//nav_msgs::Odometry mov;
 ~~~
 Create a ROS node and declair a variable of type geometry_msgs/Twist.
 

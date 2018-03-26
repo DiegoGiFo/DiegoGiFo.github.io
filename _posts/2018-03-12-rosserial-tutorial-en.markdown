@@ -14,14 +14,15 @@ The control is done by 4 buttons that allow the turtle to move rigth, left, forw
 
 ## TOPICS
 
- - The use of a publisher that publishes on the topic /turtle1/cmd_vel the movements value based on the button pressed;
- - The use of a subsriber that subscribes to the topic /turtle1/pose from which receives the position of the turtle and print it on the LCD screen.
+ - The use of a publisher that publishes on the topic /turtle1/cmd_vel the values of the movements based on the button pressed;
+ - The use of a subsriber that subscribes to the topic /turtle1/pose from which receives the position of the turtle and prints it on the LCD screen.
 
+This graph may help in the understanding of the program.
 ![Ros_graph](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/rosgraph.png?raw=true "Figure 1-1")
 
 ## MATERIAL
 
-For the relization of this projects is needed:
+For the relization of this project is needed:
 
 - Arduino uno;
 - LCD screen 16 x 2;
@@ -157,8 +158,8 @@ void loop() {
 ~~~
 LiquidCrystal.h is needed for the LCD screen.
 ros.h includes all libraries of the ROS system.
-Need to include turtlesim/Pose.h because the node /turtle1/pose has values of type turtlesim/Pose.
-Need also to include geometry_msgs/Twist.h because the node /turtle1/cmd_vel recaives values of type geometry_msgs/Twist.
+Need to include turtlesim/Pose.h because the topic /turtle1/pose has values of type turtlesim/Pose.
+Need also to include geometry_msgs/Twist.h because the topic /turtle1/cmd_vel receives values of type geometry_msgs/Twist.
 
 ## DECLARATION
 
@@ -185,7 +186,7 @@ int LFT = 0;
 int FWD = 0;
 int BEH = 0;
 ~~~
-Declare the variables movements as type geometry_msgs/Twist
+Declare the variables movements as type geometry_msgs/Twist.
 Declare the buttons's pins and 4 variables of type int that are the inputs of the 4 buttons.
 
 ## CALLBACK FUNCTION
@@ -202,8 +203,8 @@ void turt_cb( const turtlesim::Pose &turt_msg){
 }
 ~~~
 This function is needed in the subscriber initialization and prints on the LCD screen the position of the turtle.
-lcd.setCursor(0,0) sets the position of the cursor in the screen. Since the 16x2 screen has 16 columns and 2 rows the X position is printed in the first row and the Y position on the second row.
-The variables turt_msg.x and turt_msg.y contains the X and Y position of the turtle in the simulator.
+lcd.setCursor(0,0) sets the position of the cursor in the LCD screen. Since the 16x2 screen has 16 columns and 2 rows the X position is printed in the first row and the Y position on the second row.
+The variables turt_msg.x and turt_msg.y contain the X and Y position of the turtle in the simulator.
 
 ~~~cpp
 ros::Subscriber<turtlesim::Pose> sub("/turtle1/pose", &turt_cb);
@@ -224,12 +225,12 @@ void setup() {
   pinMode(BtPin2, INPUT);
   pinMode(BtPin3, INPUT);
   pinMode(BtPin4, INPUT);
-  lcd.begin(16, 2); // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2); // set up the LCD's number of columns and rows
 }
 ~~~
-At first need to initialize the ros node, then nedd to advert that we have a publisher and a subsciber called pus and sub.
+At first need to initialize the ros node, then need to advert that we have a publisher and a subsciber called pub and sub.
 
-Initialize the buttons's pin as input pin and the lcd screen as a 16x2 screen.
+Initialize the buttons's pins as inputs pins and the lcd screen as a 16x2 screen.
 
 ## VOID LOOP
 
@@ -281,4 +282,4 @@ void loop() {
 
 In the void loop are assigned to the 4 variables RGT, LFT, BEH, FWD the 4 values of the buttons's inputs and then checked which variables is equal to high which means that the corresponding button is pressed.
 
-On the basis of the pressed button is publish on the topic /turtle1/cmd_vel a different linear and angular velocity.
+On the basis of the pressed button is published on the topic /turtle1/cmd_vel a different linear and angular velocity.

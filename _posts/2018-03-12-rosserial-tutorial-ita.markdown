@@ -13,9 +13,10 @@ La tartaruga viene controllata da 4 pulsanti che la fanno muovere a destra,sinis
 
 ## CONTENUTI
 
- - L'uso di un publisher che pubblica sul topic /turtle1/cmd_vel i movimenti da far compiere alla tartaruga basandosi sul pulsante che si è premuto;
+ - L'uso di un publisher che pubblica sul topic /turtle1/cmd_vel i movimenti da far compiere alla tartaruga basandosi sul pulsante che è stato premuto;
  - L'uso di un subscriber che si sottoscrive al topic /turtle1/pose dal quale riceve la posizione della tartaruga e la mostra sullo schermo LCD.
 
+Questo grafico può aiutare nella comprensione delle azioni del programma.
 ![Ros_graph](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/rosgraph.png?raw=true "Figure 1-1")
 
 ## MATERIALE
@@ -156,8 +157,8 @@ void loop() {
 ~~~
 LiquidCrystal.h è necessaria per il funzionamento dello schermo LCD.
 ros.h include tutte le librerie del sistema ROS.
-Dobbiamo includere turtlesim/Pose.h perchè il nodo /turtle1/pose ha valori del tipo turtlesim/Pose.
-Dobbiamo anche includere geometry_msgs/Twist.h perchè il nodo /turtle1/cmd_vel riceve valuri di tipo geometry_msgs/Twist.
+Dobbiamo includere turtlesim/Pose.h perchè il topic /turtle1/pose ha valori del tipo turtlesim/Pose.
+Dobbiamo anche includere geometry_msgs/Twist.h perchè il topic /turtle1/cmd_vel riceve valori di tipo geometry_msgs/Twist.
 
 ## DICHIARAZIONI
 
@@ -200,15 +201,15 @@ void turt_cb( const turtlesim::Pose &turt_msg){
   lcd.print(turt_msg.y);
 }
 ~~~
-Questa funzione verrà poi richiamata nell'inizializzazione del subscriber e mostra tramite lo schermo LCD la posizione della tartaruga.
-lcd.setCursor(0,0) inizializza la posizione del cursore nello schermo. Sche che lo schermo è 16x2 ha 16 colonne e 2 righe. La posizione X è mostrata nella prima riga e la posizione Y nella seconda.
+Questa funzione verrà richiamata nell'inizializzazione del subscriber e mostra tramite lo schermo LCD la posizione della tartaruga.
+lcd.setCursor(0,0) inizializza la posizione del cursore nello schermo. Visto che lo schermo è 16x2 ha 16 colonne e 2 righe. La posizione X è mostrata nella prima riga e la posizione Y nella seconda.
 Le variabili turt_msg.x e turt_msg.y contengono la posizione X e Y della tartaruga nel simulatore.
 
 ~~~cpp
 ros::Subscriber<turtlesim::Pose> sub("/turtle1/pose", &turt_cb);
 ros::Publisher pub("/turtle1/cmd_vel", &movements);
 ~~~
-Dichiarazione del subscriber che s sottoscrive a /turtle1/pose e di un publisher che pubblica su /turtle1/cmd_vel.
+Dichiarazione del subscriber che si sottoscrive a /turtle1/pose e di un publisher che pubblica su /turtle1/cmd_vel.
 
 ## VOID SETUP
 
@@ -223,12 +224,12 @@ void setup() {
   pinMode(BtPin2, INPUT);
   pinMode(BtPin3, INPUT);
   pinMode(BtPin4, INPUT);
-  lcd.begin(16, 2); // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2); // set up the LCD's number of columns and rows
 }
 ~~~
 per prima cosa si deve inizializzare il nodo ROS, successivamente si deve indicare che sono presenti un subsciber e un publisher.
 
-Initializare i pin dei bottoni come input pin e lo schermo LCD di dimensioni 16x2.
+Inizializzare i pin dei bottoni come input pin e lo schermo LCD di dimensioni 16x2.
 
 ## VOID LOOP
 
