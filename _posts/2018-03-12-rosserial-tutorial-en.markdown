@@ -17,7 +17,7 @@ The control is done by 4 buttons that allow the turtle to move rigth, left, forw
  - The use of a publisher that publishes on the topic /turtle1/cmd_vel the values of the movements based on the button pressed;
  - The use of a subsriber that subscribes to the topic /turtle1/pose from which receives the position of the turtle and prints it on the LCD screen.
 
-This graph may help in the understanding of the program.
+This graph may help in understanding what the program does.
 ![Ros_graph](https://github.com/DiegoGiFo/Turtle_Cnt_Arduino/blob/master/Vs_2/rosgraph.png?raw=true "Figure 1-1")
 
 ## MATERIAL
